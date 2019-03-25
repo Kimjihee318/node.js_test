@@ -1,0 +1,22 @@
+{
+  "name": "server_side_js",
+  "version": "1.0.0",
+  "description": "Node.js test",
+  "main": "hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kimjihee318/node.js_test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kimjihee318/node.js_test/issues"
+  },
+  "homepage": "https://github.com/Kimjihee318/node.js_test#readme",
+  "dependencies": {
+    "underscore": "^1.9.1"
+  }
+}
