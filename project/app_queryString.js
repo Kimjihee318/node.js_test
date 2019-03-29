@@ -15,22 +15,22 @@ app.get('/topic', function(req, res){
   ${topics[req.query.id]}
   `
   res.send(output);
-})
+});
 app.get('/notes', (req, res)=> {
   //req객체의 query객체의 note property
   let str = req.query.note;
   res.send(str)
-})
+});
 app.get('/twoString', (req, res)=> {
   //req객체의 query객체의 note property
   let note_str = req.query.note;
   let id_str = req.query.id;
   res.send(note_str+', '+id_str)
-})
+});
 // 웹에서 불러올땐 이 방식으로 http://localhost:2000/twostring?note=1&id=jihee
 app.get('/', (req, res) => {
   res.send('Hello app2');
-})
-app.listen(2000, () => {
-  console.log('Connected 2000 port')
+});
+app.listen(3002, () => {
+  console.log('Connected 3002 port')
 }); // 포트 번호 지정, 2000번을 바라본다.

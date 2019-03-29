@@ -10,7 +10,7 @@ let app = express();
 app.get('/', (req, res) => {
   // '/'는 path
   // 사용자에게는 응답을 해줘야 함 = res
-  res.send('Hello home page');
+  res.send('Hello home page + I using supervisor');
 });
 /* 
   route : 길을 찾는다. 

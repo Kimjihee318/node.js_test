@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+  body
+    //- 서버의 어디로 전송할지 
+    //- 사용자가 입력한 정보를 서버에 전달
+    //- html에서 form은 url을 자동으로 생성하는 역할을 함
+    //-  method를 defualt: get
+    //- app.js에서 get 방식을 이용하여 
+    form(action='/form_receiver' method='get')
+      p
+        //- 제출한 내용이  title이라는 이름으로 전송 : 사용자가 넣은 정보의 이름을 서버가 알아야함
+        input(type='text' name='title')
+      p
+        //- 제출한 내용이  description 이라는 이름으로 전송
+        textarea(name='description')
+      p
+        //- server로 전송하는 전송버튼이 됨
+        input(type='submit')
+
+      //- 제출하면 url이 변경된다.
+    //- 입력한 정보에 따라서 웹브라우저가 만든 queryString url을 볼 수 있다.
+
+    //- ******* html form은 url을 생성해주는 태그

@@ -1,5 +1,5 @@
 let express = require('express');
-let app = express()
+let app = express();
 
 /* 
   정적인 파일이 들어있는 곳을 지정 
@@ -33,7 +33,7 @@ app.get('/dynamic', (req, res)=> {
     </body>
   </html>`
   res.send(output)
-})
+});
 app.listen(3001, ()=>{
   console.log('Connected 3001 port!')
-})
+});
