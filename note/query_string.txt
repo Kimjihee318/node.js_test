@@ -1,0 +1,13 @@
+쿼리 스트링을 알아보자
+
+아래의 전체를 url이라고 한다.
+
+http://a.com/topic?id=1
+http://a.com/topic?id=2
+http://a.com/topic?id=3
+
+http:// => 하이퍼 텍스트 트랜스퍼 프로토콜
+a.com => 도메인 : 서버 컴퓨터가 있는 주소
+/topic => path : 일종의 라우터랑 연결 되는 곳
+?id=1 => query string : 같은 패스에서 쿼리스트링에 따라 다른값을 주는 미라클!!
+쿼리스트링에 따른 링크를 바꾸는 것
