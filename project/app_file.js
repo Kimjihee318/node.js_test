@@ -13,31 +13,27 @@ app.get('/', (req, res) => {
 });
 
 app.get('/topic/new', (req, res) => {
-  //pug파일
   res.render('new');
 });
-app.get('/topic', (req, res) => {
+// app.get('/topic') & app.get('/topic/:id')를 한번에 동시에 하기!!
+app.get(['/topic', '/topic/:id'], (req, res) => {
   fs.readdir('data', (err, files) => {
     if(err) {
       res.status(500).send('Internet Server Error')
     }
-      // render 넣고싶은 데이터를 객체로 따로 전달 가능
-      res.render('view', { topics: files
+    // id 값이 있을때 /topic/:id는 paramater
+    let id = req.params.id;
+    if(id) {
+      fs.readFile('data/'+id, 'utf8', (err, data) => {
+        if(err){
+          res.status(500).send('Internet Server Error')
+        }
+        res.render('page', { title: id, texts: data });
       });
-  });
-});
-// 변하는 url 은 /:id를 활용 해서 만듦 이건 파라메터 이용
-app.get('/topic/:id', (req, res) => {
-  let id = req.params.id;
-  // res.send(id); 이경우 저장한 파일 이름이 들어온다. ******* ???
-  fs.readFile('data/'+id, 'utf8', (err, data) => {
-    if(err){
-      res.status(500).send('Internet Server Error')
     }
-      res.render('page', 
-      { title: id,
-        texts: data  
-      })
+    else {
+      res.render('view', { topics: files });
+    }
   });
 });
 app.post('/topic', (req, res) => {
@@ -45,14 +41,12 @@ app.post('/topic', (req, res) => {
   let description = req.body.description;
   fs.writeFile('data/'+ title, description, (err) => {
     if(err) {
-      console.log('err');
       res.status(500).send('Internal Server Error');
     }
-    console.log('success');
-    res.send('Success!!');
+    res.redirect('/topic/'+ title);
   });
 });
 
-app.listen( 3010, () => {
+app.listen(3010, () => {
   console.log('Connected 3010 port')
 }); 

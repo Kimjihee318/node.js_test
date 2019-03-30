@@ -1,5 +1,5 @@
 let express = require('express');
-// 미들웨어
+// middleware
 let bodyParser = require('body-parser')
 let app = express();
 
