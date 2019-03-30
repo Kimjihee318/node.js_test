@@ -22,7 +22,7 @@ app.get('/topic/:id', function(req, res){
 });
 
 // 2번.
-app.get('/topic', function(req, res){
+app.get('/topic', (req, res) => {
   let topics = [
      'Javascript is....',
      'Nodejs is...',
